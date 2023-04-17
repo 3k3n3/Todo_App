@@ -1,0 +1,35 @@
+{% extends 'accounts/_base.html' %}
+{% load todo_status %}
+{% block title %}| Detail{% endblock title %}
+
+{% block content %}
+
+<section>
+    <div class="add-btn">
+        <a href="{% url 'home' %}">Home</a>
+        <a class="xtra-btn" href="{% url 'update' todo.id %}">Edit</a>
+    </div>
+    <div class="container">
+        <div>
+            {{todo.title.title}}
+        </div>
+    </div>
+    <div class="container">
+        {{todo.detail|linenumbers|linebreaks}}
+    </div>
+    <div class="container">
+        <div class="{{todo.status|status}}">
+            {{todo.status}}
+        </div>
+        <div class="dates">
+            <div>
+                Last edited {{todo.updated|timesince}} ago.
+            </div>
+            <div>
+                Created about {{todo.created|timesince}} ago.
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

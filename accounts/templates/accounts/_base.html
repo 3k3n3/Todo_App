@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo {% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+{% now "H" as hour_now %}
+<body class="color-{{hour_now}}">
+    <header class="hello_time">
+        <div class="hello">
+            {% if hour_now|add:0 >= 0 and hour_now|add:0 < 4 %}Sleep is for the week
+            {% elif hour_now|add:0 >= 4 and hour_now|add:0 < 8 %}Good Morning {{user.username}}!
+            {% elif hour_now|add:0 >= 8 and hour_now|add:0 < 12 %}Dont skip breakfast...
+            {% elif hour_now|add:0 >= 12 and hour_now|add:0 < 16 %}lalala yo Bonjour! Don't forget to drink water...
+            {% elif hour_now|add:0 >= 16 and hour_now|add:0 < 20 %}Crushing today's goals?
+            {% elif hour_now|add:0 >= 20 and hour_now|add:0 < 23%}Good evening, how re you doing today?{{user.username}}
+            {% elif hour_now|add:0 >= 23 %}Rest, you sef don try
+            {% else %}Time error!{% endif %}
+        </div>
+        <div class="time">
+            {% now "g:ia" %}
+        </div>
+    </header>
+    <main>
+        {% block content %}
+
+        {% endblock content %}
+    </main>
+    <footer></footer>
+</body>
+    <script src="{% static 'js/main.js' %}"></script>
+</html>

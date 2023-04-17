@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+</head>
+
+<body>
+    <h1>Sign Up</h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+        Email: {{ form.label_tag }} <br>
+        Email: {{ form.email }} <br>
+        Username: {{ form.username }} <br>
+        Password: {{ form.password1 }} <br>
+        Confirm Password: {{ form.password2 }} <br>
+
+        <button type="submit">Create</button>
+    </form>
+</body>
+
+</html>

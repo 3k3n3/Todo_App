@@ -1,0 +1,25 @@
+{% extends 'accounts/_base.html' %}
+{% block title %}| {% if todo %}Edit Todo{% else %}Add Todo{% endif %}{% endblock title %}
+{% load widget_tweaks %}
+{% block content %}
+
+<form  class="form-group" action="" method="post">
+    {% csrf_token %}
+    <div>
+        {% render_field form.title class="form-control" placeholder=form.title.label type="text" %}
+    </div>
+    <div>
+        {% render_field form.detail class="form-control form-control-detail" placeholder=form.detail.label cols="" rows="" %}
+    </div>
+    <div>
+        {% render_field form.status class="form-control"%}
+    </div>
+
+    {% if todo %}
+    <button class="form-btn" type="submit">Update</button>
+    {% else %}
+    <button class="form-btn" type="submit">Save</button>
+    {% endif %}
+
+</form>
+{% endblock content %}
