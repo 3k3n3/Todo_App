@@ -1,1 +1,1 @@
-web: gunicorn todo.wsgi --log-file -
+web: python manage.py migrate && gunicorn mysite.wsgi
