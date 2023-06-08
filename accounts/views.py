@@ -8,7 +8,7 @@ from .models import CustomUser, Todo
 class SignupPageView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy("login")
-    template_name = "accounts/signup.html"
+    template_name = "registration/signup.html"
 
 
 # class ProfilePageView(TemplateView):

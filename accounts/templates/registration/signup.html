@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'accounts/_base.html' %}
+{% load widget_tweaks %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up</title>
-</head>
+{% block title %}| Signup{% endblock title %}
 
-<body>
-    <h1>Sign Up</h1>
-
+{% block content %}
     <form action="" method="post">
         {% csrf_token %}
+        <h1>Signup</h1>
         <!-- {{ form.as_p }} -->
-        Email: {{ form.label_tag }} <br>
         Email: {{ form.email }} <br>
         Username: {{ form.username }} <br>
         Password: {{ form.password1 }} <br>
@@ -22,6 +15,4 @@
 
         <button type="submit">Create</button>
     </form>
-</body>
-
-</html>
+{% endblock content %}

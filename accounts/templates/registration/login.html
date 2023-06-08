@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'accounts/_base.html' %}
+{% load widget_tweaks %}
+{% block title %}| Login{% endblock title %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-
-<body>
+{% block content %}
     <h1>Login</h1>
     <form action="" method="post">
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit">Log in</button>
     </form>
-</body>
-
-</html>
+{% endblock content %}
